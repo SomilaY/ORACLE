@@ -25,9 +25,9 @@ namespace ORACLE
             SoundPlayer player = new SoundPlayer(OracleGreeting);
             try
             {
-                player.Load();
-                player.Play();
+                player.Load();             
                 Console.WriteLine("Welcome to ORACLE an Online Risk Awareness & Cybersecurity Learning Engine");
+                player.PlaySync();
             }
             catch (Exception error)
             {
