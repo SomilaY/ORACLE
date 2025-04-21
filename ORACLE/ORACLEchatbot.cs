@@ -99,6 +99,22 @@ namespace ORACLE
                     Console.WriteLine("- Don’t open strange attachments or links from unknown senders");
                     Console.WriteLine($"\nAnything else you need {userName}?");
                 }
+                else if (userInput.Contains("safe browsing") || userInput.Contains("browsing safely"))
+                {
+                    Console.WriteLine($"\nORACLE: Safe browsing is all about protecting yourself while exploring the vast web! " +
+                                      "Cybercriminals love setting traps—fake websites, shady ads, and hidden malware—but don’t worry {userName} " +
+                                      "I’ve got your back from now on. Let’s make sure you stay safe online!");
+
+                    Console.WriteLine("\nHere’s how to browse safely:");
+                    Console.WriteLine("-Always check for HTTPS or the lock icon in the address bar—this means the site is secure.");
+                    Console.WriteLine("-Double-check URLs before entering personal info—scammers create fake sites that look identical to real ones.");
+                    Console.WriteLine("-Avoid public Wi-Fi for sensitive tasks—hackers can intercept your data on unsecured networks.");
+                    Console.WriteLine("-Never download files from unknown sources—they could contain viruses or malware.");
+                    Console.WriteLine("-Keep your browser updated regularly—updates patch security vulnerabilities.");
+                    Console.WriteLine("-Don’t **click on suspicious pop-ups or ads**—these often lead to scams or malicious sites.");
+
+                    Console.WriteLine($"\nAnything else you need,{userName}?");
+                }
                 else
                 {
                     Console.WriteLine($"ORACLE: umm I don't understand what you meant by'{userInput}',{userName}");
