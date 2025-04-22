@@ -27,7 +27,7 @@ namespace ORACLE
             {
                 player.Load();             
                 Console.WriteLine("Welcome to ORACLE an Online Risk Awareness & Cybersecurity Learning Engine");
-                player.PlaySync();
+                player.PlaySync();           
             }
             catch (Exception error)
             {

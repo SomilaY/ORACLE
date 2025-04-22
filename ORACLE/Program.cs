@@ -6,11 +6,11 @@ namespace ORACLE
     {
         static void Main()
         {
-            // Display the welcome screen
+            ORACLEchatbot.RetroStartUp();
             WelcomePage.OracleWelcome();
             ORACLEchatbot.StartChat();
             Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey(); // This keeps the console open until a key is pressed
+            Console.ReadKey();
 
 
         }
