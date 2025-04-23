@@ -190,7 +190,7 @@ namespace ORACLE
             Console.ResetColor();
         }
 
-        static void SlowType(string message, int speed = 50) //type writer like effect , message is the string to be typed out, speed is the speed the effect has
+        static void SlowType(string message, int speed = 50) //type writer like effect , message is the string to be typed out, speed is the speed the effect creates
         {            
             if (message.StartsWith("ORACLE:")) //if message starts with ORACLE this method is to prevent it from printing twice and so its printed separately
             {
