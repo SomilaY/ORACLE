@@ -1,0 +1,32 @@
+name: .NET Build and Format Check
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build-and-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' # or use your project's version
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build project
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Check code format
+        run: dotnet format --verify-no-changes --verbosity diagnostic
+
+      # Optional: Uncomment if you have tests
+      # - name: Run tests
+      #   run: dotnet test --no-build --verbosity normal
