@@ -63,7 +63,7 @@ namespace ORACLE
                          userInput.Contains("your goal") ||
                          (userInput.Contains("what can i ask you") ||
                          userInput.Contains("topics") ||
-                         userInput.Contains("what do you know")) )
+                         userInput.Contains("what do you know")))
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     SlowType($"ORACLE: I love this question {userName}!\n");
@@ -77,7 +77,7 @@ namespace ORACLE
                     SlowType("░  Suspicious links\n");
                     SlowType("Anything specific you'd like help with?");
                     Console.ResetColor();
-                }            
+                }
                 else if (userInput.Contains("password") ||
                          userInput.Contains("security") ||
                          userInput.Contains("protect") ||
@@ -191,7 +191,7 @@ namespace ORACLE
         }
 
         static void SlowType(string message, int speed = 50) //type writer like effect , message is the string to be typed out, speed is the speed the effect has
-        {            
+        {
             if (message.StartsWith("ORACLE:")) //if message starts with ORACLE this method is to prevent it from printing twice and so its printed separately
             {
                 Console.Write("ORACLE: ");
@@ -201,7 +201,7 @@ namespace ORACLE
 
             foreach (char c in message) // loops through each each char so it is printed 1 at a time
             {
-                Console.Write(c); 
+                Console.Write(c);
                 System.Threading.Thread.Sleep(speed); //typewriter speed
             }
             Console.WriteLine();

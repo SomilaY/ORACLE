@@ -11,7 +11,7 @@ namespace ORACLE
     {
         private static string OracleGreeting = @"assets\ORACLE_GREETING.wav"; //The path to the ORACLE greeting
         public static void OracleWelcome()
-        { 
+        {
             Console.Clear();  //Clears anything on the console for a clean start
             Console.WriteLine("O R A C L E");
             Console.WriteLine("─────────────");
@@ -20,12 +20,12 @@ namespace ORACLE
             Console.WriteLine(" ██      ██");
             Console.WriteLine(" ██      ██"); //ASCII Art
             Console.WriteLine(" ██      ██");
-            Console.WriteLine("   ██████\n");          
+            Console.WriteLine("   ██████\n");
 
             SoundPlayer player = new SoundPlayer(OracleGreeting);
             try
             {
-                player.Load();             
+                player.Load();
                 Console.WriteLine("Welcome to ORACLE an Online Risk Awareness & Cybersecurity Learning Engine"); //plays the ORACLE greeting
                 player.PlaySync();   //waits for the greeting to finish playing before continuing
             }
