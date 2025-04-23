@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-format:
-    runs-on: windows-latest  # Windows runner is better for VS solutions
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'  # Or match your version (e.g., 7.0.x or 6.0.x)
+          dotnet-version: '8.0.x'  # Match your actual .NET version
 
       - name: Restore dependencies
         run: dotnet restore
@@ -25,8 +25,4 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Check code formatting
-        run: dotnet format --verify-no-changes --severity info
-
-      # Optional: Add test step if you use unit tests
-      # - name: Run tests
-      #   run: dotnet test --no-build --verbosity normal
+        run: dotnet format --verify-no-changes
