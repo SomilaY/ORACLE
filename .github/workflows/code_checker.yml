@@ -1,28 +1,29 @@
-name: .NET Console App - Build and Format Check
+name: .NET Console App - Build Check
 
 on:
   push:
-    branches:
-      - '**'
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build-and-format:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'  # Match your actual .NET version
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x # or the version your project uses
 
-      - name: Restore dependencies
-        run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore
 
-      - name: Build solution
-        run: dotnet build --no-restore --configuration Release
+    - name: Build project
+      run: dotnet build --no-restore --configuration Release
 
-      - name: Check code formatting
-        run: dotnet format --verify-no-changes
+    - name: Run static code analysis
+      run: dotnet build --no-restore --configuration Release /warnaserror
