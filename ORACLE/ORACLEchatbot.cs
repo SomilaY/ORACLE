@@ -137,7 +137,7 @@ namespace ORACLE
                                       "I’ve got your back from now on. Let’s make sure you stay safe online!");
 
                     SlowType("\n=====================================");
-                    SlowType("       HOW TO BROWSE SAFETLY      ");
+                    SlowType("       HOW TO BROWSE SAFELY     ");
                     SlowType("=====================================\n");
                     SlowType("░ Always check for HTTPS or the lock icon in the address bar—this means the site is secure.");
                     SlowType("░ Double-check URLs before entering personal info—scammers create fake sites that look identical to real ones.");
@@ -164,7 +164,7 @@ namespace ORACLE
                     SlowType("---> Look for HTTPS encryption – A secure website always starts with \"https://\"—avoid sites that only have \"http://\".");
                     SlowType("---> Hover over links before clicking – On computers, hovering over a link shows the real destination.");
                     SlowType("---> Be cautious with unexpected emails or messages – If someone sends you a link out of nowhere, think twice before clicking.\n");
-                    SlowType("---> Always check the senders email\n");
+                    SlowType("---> Always check the sender's email\n");
 
                     SlowType($"Anything else you need help with {userName}?");
                     Console.ResetColor();
@@ -194,8 +194,8 @@ namespace ORACLE
         {            
             if (message.StartsWith("ORACLE:")) //if message starts with ORACLE this method is to prevent it from printing twice and so its printed separately
             {
-                Console.Write("ORACLE: "); 
-                message = message.Substring(8);
+                Console.Write("ORACLE: ");
+                message = message.Substring(8).TrimStart();
             }
 
 
