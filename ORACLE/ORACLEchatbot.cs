@@ -7,29 +7,29 @@ namespace ORACLE
         public static void StartChat()
         {
 
-            Console.Write("\nWhat is your name? ");
+            Console.Write("\nWhat is your name? "); //get users name
 
-            string userName = Console.ReadLine();
+            string userName = Console.ReadLine(); //store users name
 
             if (!string.IsNullOrWhiteSpace(userName))
             {
                 SlowType($"\nHello {userName}! I'm here to assist you with anything cybersecurity related");
 
-                ChatLoop(userName);
+                ChatLoop(userName); //start the chatloop
             }
             else
             {
                 SlowType("\nI didn't get your name my friend");
-                StartChat();
+                StartChat(); //if the user didnt give name start again
             }
         }
 
         private static void ChatLoop(string userName)
         {
-            while (true)
+            while (true) //chatbot is looped until user decides to exit
             {
-                Console.Write($"\n{userName}: ");
-                string userInput = Console.ReadLine()?.ToLower();
+                Console.Write($"\n{userName}: "); //dispalys users name
+                string userInput = Console.ReadLine()?.ToLower(); //reads input and converts to lowercase for easy comparison
 
                 if (userInput == "exit" ||
                     userInput == "quit" ||
@@ -39,9 +39,9 @@ namespace ORACLE
                     userInput == "leave" ||
                     userInput == "end chat")
                 {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Cyan; //sets colour 
                     SlowType($"Bye Bye {userName}! I'll always be here for you");
-                    Console.ResetColor();
+                    Console.ResetColor(); //reverts colour back to default
                     break;
                 }
                 else if (userInput.Contains("how are you") ||
@@ -181,28 +181,28 @@ namespace ORACLE
 
         public static void RetroStartUp()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            for (int i = 0; i < 5; i++)
+            Console.ForegroundColor = ConsoleColor.Cyan; //setting colour
+            for (int i = 0; i < 5; i++) //loops 5 times to look like a loading effect and play dots one by one
             {
                 Console.Write(".");
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(500); //give the retro delayed effect
             }
             Console.ResetColor();
         }
 
-        static void SlowType(string message, int speed = 50)
+        static void SlowType(string message, int speed = 50) //type writer like effect , message is the string to be typed out, speed is the speed the effect has
         {            
-            if (message.StartsWith("ORACLE:"))
+            if (message.StartsWith("ORACLE:")) //if message starts with ORACLE this method is to prevent it from printing twice and so its printed separately
             {
                 Console.Write("ORACLE: "); 
                 message = message.Substring(8);
             }
 
 
-            foreach (char c in message)
+            foreach (char c in message) // loops through each each char so it is printed 1 at a time
             {
-                Console.Write(c);
-                System.Threading.Thread.Sleep(speed);
+                Console.Write(c); 
+                System.Threading.Thread.Sleep(speed); //typewriter speed
             }
             Console.WriteLine();
         }
