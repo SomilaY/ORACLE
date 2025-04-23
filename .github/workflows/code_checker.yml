@@ -1,4 +1,4 @@
-name: .NET Build and Format Check
+name: .NET Console App - Build and Format Check
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-format:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # Windows runner is better for VS solutions
 
     steps:
       - name: Checkout code
@@ -16,17 +16,17 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x' # or use your project's version
+          dotnet-version: '8.0.x'  # Or match your version (e.g., 7.0.x or 6.0.x)
 
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build project
-        run: dotnet build --configuration Release --no-restore
+      - name: Build solution
+        run: dotnet build --no-restore --configuration Release
 
-      - name: Check code format
-        run: dotnet format --verify-no-changes --verbosity diagnostic
+      - name: Check code formatting
+        run: dotnet format --verify-no-changes --severity info
 
-      # Optional: Uncomment if you have tests
+      # Optional: Add test step if you use unit tests
       # - name: Run tests
       #   run: dotnet test --no-build --verbosity normal
