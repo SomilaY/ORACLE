@@ -13,7 +13,13 @@ namespace ORACLE
 
             if (!string.IsNullOrWhiteSpace(userName))
             {
-                SlowType($"\nHello {userName}! I'm here to assist you with anything cybersecurity related");
+                SlowType($"\nHello {userName}! I'm here to assist you with anything cybersecurity related.");
+                SlowType("I cover:");
+                SlowType(">>>=== Password security");
+                SlowType(">>>=== Phishing scams");
+                SlowType(">>>=== Safe browsing techniques");
+                SlowType(">>>=== Recognizing suspicious links");
+                SlowType(">>>=== General cybersecurity awareness");
 
                 ChatLoop(userName); //start the chatloop
             }
@@ -26,6 +32,8 @@ namespace ORACLE
 
         private static void ChatLoop(string userName)
         {
+            string currentTopic = "";
+
             while (true) //chatbot is looped until user decides to exit
             {
                 Console.Write($"\n{userName}: "); //dispalys users name
@@ -38,7 +46,7 @@ namespace ORACLE
                     userInput == "i'm done" ||
                     userInput == "leave" ||
                     userInput == "end chat")
-                {
+                {                   
                     Console.ForegroundColor = ConsoleColor.Cyan; //sets colour 
                     List<string> farewellMessages = new List<string>
                     {
@@ -63,7 +71,7 @@ namespace ORACLE
                          userInput.Contains("how do you feel") ||
                          userInput.Contains("are you okay") ||
                          userInput.Contains("what's up"))
-                {
+                {                  
                     Console.ForegroundColor = ConsoleColor.Cyan;
 
                     // Create a list of multiple possible responses
@@ -116,10 +124,10 @@ namespace ORACLE
 
                     // Follow-up with consistent details about topics covered
                     SlowType("I cover:");
-                    SlowType("░  Phishing emails");
-                    SlowType("░  Password security");
-                    SlowType("░  Safe browsing techniques");
-                    SlowType("░  Suspicious links\n");
+                    SlowType("##>>  Phishing emails");
+                    SlowType("##>> Password security");
+                    SlowType("##>>  Safe browsing techniques");
+                    SlowType("##>>  Suspicious links\n");
 
                     SlowType("Anything specific you'd like help with?");
 
@@ -130,6 +138,7 @@ namespace ORACLE
                          userInput.Contains("protect") ||
                          userInput.Contains("secure"))
                 {
+                    currentTopic = "password";
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     List<string> passwordResponses = new List<string>
                     {
@@ -163,7 +172,7 @@ namespace ORACLE
                      "✅ Beware of **password-sharing scams**—never share your credentials!"
                     };
 
-                    passwordTips = passwordTips.OrderBy(x => rand.Next()).ToList();
+                    List<string> selectedTips = passwordTips.OrderBy(x => rand.Next()).Take(3).ToList();
                     foreach (var tip in passwordTips)
                     {
                         SlowType(tip);
@@ -178,6 +187,7 @@ namespace ORACLE
                          userInput.Contains("scam") ||
                          userInput.Contains("fraud"))
                 {
+                    currentTopic = "phishing";
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     List<string> phishingResponses = new List<string>
                     {
@@ -206,7 +216,7 @@ namespace ORACLE
                       "🔗 Links that look trustworthy but redirect to fraudulent sites"
                     };
 
-                    phishingRedFlags = phishingRedFlags.OrderBy(x => rand.Next()).ToList();
+                    List<string> selectedRedFlags = phishingRedFlags.OrderBy(x => rand.Next()).Take(3).ToList();
                     foreach (var redFlag in phishingRedFlags)
                     {
                         SlowType(redFlag);
@@ -224,7 +234,7 @@ namespace ORACLE
                      "🕵️ **Be wary of QR codes**—fraudsters embed malicious links inside them"
                     };
 
-                    phishingPreventionTips = phishingPreventionTips.OrderBy(x => rand.Next()).ToList();
+                    List<string> selectedPreventionTips = phishingPreventionTips.OrderBy(x => rand.Next()).Take(3).ToList();
                     foreach (var tip in phishingPreventionTips)
                     {
                         SlowType(tip);
@@ -235,6 +245,7 @@ namespace ORACLE
                 }
                 else if (userInput.Contains("safe browsing") || userInput.Contains("browsing safely") || userInput.Contains("safe"))
                 {
+                    currentTopic = "safe browising";
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     List<string> safeBrowsingResponses = new List<string>
                     {
@@ -270,8 +281,8 @@ namespace ORACLE
                     "░ **Always verify the legitimacy of links** before clicking—hover over them to check the true destination."
                      };
 
-                    
-                    safeBrowsingTips = safeBrowsingTips.OrderBy(x => rand.Next()).ToList();
+
+                    List<string> selectedTips = safeBrowsingTips.OrderBy(x => rand.Next()).Take(3).ToList();
                     foreach (var tip in safeBrowsingTips)
                     {
                         SlowType(tip);
@@ -284,6 +295,7 @@ namespace ORACLE
                          userInput.Contains("unsafe links") ||
                          userInput.Contains("weird links"))
                 {
+                    currentTopic = "suspicious links";
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     List<string> suspiciousLinkResponses = new List<string>
                      {
@@ -317,7 +329,7 @@ namespace ORACLE
                     };
 
                     // Shuffle and display randomized suspicious link red flags
-                    suspiciousLinkRedFlags = suspiciousLinkRedFlags.OrderBy(x => rand.Next()).ToList();
+                    List<string> selectedRedFlags = suspiciousLinkRedFlags.OrderBy(x => rand.Next()).Take(3).ToList();
                     foreach (var redFlag in suspiciousLinkRedFlags)
                     {
                         SlowType(redFlag);
@@ -337,7 +349,7 @@ namespace ORACLE
                      };
 
                     // Shuffle and display randomized prevention tips
-                    suspiciousLinkPreventionTips = suspiciousLinkPreventionTips.OrderBy(x => rand.Next()).ToList();
+                    List<string> selectedPreventionTips = suspiciousLinkPreventionTips.OrderBy(x => rand.Next()).Take(3).ToList();
                     foreach (var tip in suspiciousLinkPreventionTips)
                     {
                         SlowType(tip);
@@ -345,6 +357,126 @@ namespace ORACLE
 
                     SlowType($"\nAnything else you need help with, {userName}?");
                     Console.ResetColor();
+                }
+                else if (userInput.Contains("password"))
+                {
+                    currentTopic = "password";
+                    // Initial password explanation
+                    SlowType("ORACLE: Strong passwords are essential, but there's more to it! Do you want to learn about password managers?");
+                }
+
+                else if (currentTopic == "password")
+                {
+                    if (userInput.Contains("manager") || userInput.Contains("store pass"))
+                    {
+                        // Password manager response
+                        SlowType("ORACLE: A password manager helps you securely store all your passwords in one place. Would you like to know how to choose the best one?");
+                    }
+                    else if (userInput.Contains("mfa") || userInput.Contains("2fa"))
+                    {
+                        // MFA explanation
+                        SlowType("ORACLE: Multi-factor authentication (MFA) adds an extra layer of protection. It typically involves something you know (like a password) and something you have (like your phone). Would you like a step-by-step guide to set it up?");
+                    }
+                    else if (userInput.Contains("how often change"))
+                    {
+                        // Password change frequency
+                        SlowType("ORACLE: It's recommended to change your passwords every 3 to 6 months, or sooner if you suspect a breach. Do you want to know how to make password updates easy?");
+                    }
+                    else
+                    {
+                        // General password tips follow-up
+                        SlowType("ORACLE: Is there a specific aspect of password security you'd like to explore further?");
+                    }
+                }
+
+                // Example-based follow-up
+                else if (userInput.Contains("example") || userInput.Contains("show me"))
+                {
+                    if (currentTopic == "phishing")
+                    {
+                        // Phishing example
+                        SlowType("ORACLE: Here's an example: A phishing email might ask you to click a link to 'update your account'. Always be cautious before clicking!");
+                    }
+                    else if (currentTopic == "password")
+                    {
+                        // Password example
+                        SlowType("ORACLE: Here's an example of a strong password: 'BlueSky$123!' It includes uppercase, lowercase, numbers, and special characters!");
+                    }
+                }
+
+                // Context-aware follow-up for password and phishing
+                else if (userInput.Contains("what is") || userInput.Contains("explain"))
+                {
+                    if (currentTopic == "password")
+                    {
+                        SlowType("ORACLE: A password is a secret code that protects your personal information. It’s the first line of defense against unauthorized access to your accounts.");
+                    }
+                    else if (currentTopic == "phishing")
+                    {
+                        SlowType("ORACLE: Phishing is a scam where attackers try to trick you into giving them your personal details, often via fake emails or websites.");
+                    }
+                    else
+                    {
+                        // Default explanation if the topic isn't set
+                        SlowType("ORACLE: Let me know what you'd like me to explain, and I'll help!");
+                    }
+                }
+                // Handle follow-up questions about specific topics
+                else if (userInput.Contains("trustworthy") && userInput.Contains("website"))
+                {
+                    SlowType("ORACLE: Great question! Look for HTTPS in the address bar, check for spelling errors in the URL, and avoid sites that ask for too much personal info. Do you want tips on checking for fake sites?");
+                }
+
+                else if (userInput.Contains("report") && userInput.Contains("phishing"))
+                {
+                    SlowType("ORACLE: You can report phishing emails to your email provider, your IT department (if at school or work), or directly at reportphishing@apwg.org. Would you like help drafting a report?");
+                }
+
+                else if (userInput.Contains("trick") && userInput.Contains("link"))
+                {
+                    SlowType("ORACLE: Cybercriminals often use urgent language like 'your account will be locked!' or fake rewards to get clicks. Want to see common phrases they use?");
+                }
+
+                else if (userInput.Contains("password tip"))
+                {
+                    List<string> passwordTips = new List<string>
+        {
+            "✅ Use a **passphrase** instead of a short password—it's easier to remember and harder to crack.",
+            "✅ **Never reuse passwords** across different accounts.",
+            "✅ **Enable multi-factor authentication (MFA)** whenever possible."
+        };
+                    Random rand = new Random();
+                    int index = rand.Next(passwordTips.Count);
+                    SlowType(passwordTips[index]);
+
+                }
+
+                else if (userInput.Contains("phishing tip"))
+                {
+                    List<string> phishingTips = new List<string>
+        {
+            "🔎 **Always verify sender email addresses**—scammers often use subtle misspellings.",
+            "🚫 **Never click links in unsolicited emails**—instead, go directly to the official website.",
+            "⚠️ **Beware of urgent messages**—scammers create fake emergencies to trick you into reacting."
+        };
+                    Random rand = new Random();
+                    int index = rand.Next(phishingTips.Count);
+                    SlowType(phishingTips[index]);
+
+                }
+
+                else if (userInput.Contains("safe browsing tip"))
+                {
+                    List<string> safeBrowsingTips = new List<string>
+        {
+            "🔒 **Always check for HTTPS and the lock icon** before entering sensitive data.",
+            "🚫 **Never enter credentials on sites from unknown emails**—they could be phishing scams.",
+            "👀 **Hover over links before clicking** to ensure they lead to legitimate destinations."
+        };
+                    Random rand = new Random();
+                    int index = rand.Next(safeBrowsingTips.Count);
+                    SlowType(safeBrowsingTips[index]);
+
                 }
                 else
                 {
@@ -381,7 +513,7 @@ namespace ORACLE
             Console.ResetColor();
         }
 
-        static void SlowType(string message, int speed = 50) //type writer like effect , message is the string to be typed out, speed is the speed the effect has
+        static void SlowType(string message, int speed = 100) //type writer like effect , message is the string to be typed out, speed is the speed the effect has
         {
             if (message.StartsWith("ORACLE:")) //if message starts with ORACLE this method is to prevent it from printing twice and so its printed separately
             {
