@@ -6,10 +6,10 @@ namespace ORACLE
     {
         static void Main()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             ORACLEchatbot.RetroStartUp();
             WelcomePage.OracleWelcome();
             ORACLEchatbot.StartChat();
-            ORACLEchatbot.RetroStartUp();
             Console.WriteLine("\nPress any key to exit...");
             Console.ReadKey();
 

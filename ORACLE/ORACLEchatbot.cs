@@ -13,14 +13,18 @@ namespace ORACLE
 
             if (!string.IsNullOrWhiteSpace(userName))
             {
-                SlowType($"\nHello {userName}! I'm here to assist you with anything cybersecurity related.");
-                SlowType("I cover:");
-                SlowType(">>>=== Password security");
-                SlowType(">>>=== Phishing scams");
-                SlowType(">>>=== Safe browsing techniques");
-                SlowType(">>>=== Recognizing suspicious links");
-                SlowType(">>>=== General cybersecurity awareness");
-
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                SlowType($"\nHello {userName}! Its nice to meet you Im Oracle\n");
+                SlowType("╔═════════════════════════════════");
+                SlowType("║          WHAT I COVER!         ║");
+                SlowType("╚════════════════════════════════╝\n");
+                SlowType("✅ Password security");
+                SlowType("✅ Phishing scams");
+                SlowType("✅ Safe browsing techniques");
+                SlowType("✅ Recognizing suspicious links");
+                SlowType("✅ General cybersecurity awareness\n");
+                SlowType($"I'm here to assist you with anything cybersecurity related.");
+                Console.ResetColor();
                 ChatLoop(userName); //start the chatloop
             }
             else
@@ -77,10 +81,10 @@ namespace ORACLE
                     // Create a list of multiple possible responses
                     List<string> responses = new List<string>
                      {
-                     $"ORACLE: I feel great, {userName}! Thanks for asking.",
-                     $"ORACLE: I'm running smoothly, {userName}! No cyber threats in sight.",
-                     $"ORACLE: Cybersecurity keeps me energized, {userName}! How about you?",
-                     $"ORACLE: I'm doing well! Always excited to talk about online safety."
+                     $"ORACLE: I feel great, {userName}! Thanks for asking.😊",
+                     $"ORACLE: I'm running smoothly, {userName}! No cyber threats in sight.🛡️",
+                     $"ORACLE: Cybersecurity keeps me energized, {userName}!",
+                     $"ORACLE: I'm doing well! Always excited to talk about online safety.💡"
                      };
 
                     // Select a random response from the list
@@ -90,9 +94,7 @@ namespace ORACLE
                     // Display the randomized response
                     SlowType(responses[index]);
 
-                    // Follow up with a consistent message
-                    SlowType("I hope you feel great too!!!\n");
-                    SlowType("I'm really excited to teach you about cybersecurity.");
+                    // Follow up with a consistent message                
                     SlowType("Anything you need help with cybersecurity related?");
 
                     Console.ResetColor();
@@ -108,11 +110,11 @@ namespace ORACLE
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     List<string> purposeResponses = new List<string>
                      {
-                     $"ORACLE: I love this question, {userName}!\nI'm here to make sure your digital life stays protected.",
-                     $"ORACLE: Great question, {userName}! My mission is to help you navigate the world of cybersecurity safely.",
-                     $"ORACLE: Cybersecurity is my specialty, {userName}! I’m here to help you avoid scams and stay secure online.",
-                     $"ORACLE: I exist to make sure you never fall victim to online threats, {userName}! Let’s keep your data safe.",
-                     $"ORACLE: My goal? To arm you with knowledge about cybersecurity so you're always one step ahead of scammers, {userName}."
+                     $"ORACLE: I love this question, {userName}!\nI'm here to make sure your digital life stays protected.🛡️",
+                     $"ORACLE: Great question, {userName}! My mission is to help you navigate the world of cybersecurity safely.🛡️",
+                     $"ORACLE: Cybersecurity is my specialty, {userName}! I’m here to help you avoid scams and stay secure online.🔒",
+                     $"ORACLE: I exist to make sure you never fall victim to online threats, {userName}! Let’s keep your data safe.🛡️",
+                     $"ORACLE: My goal? To arm you with knowledge about cybersecurity so you're always one step ahead of scammers, {userName}.🔒"
                      };
 
                     // Select a random response from the list
@@ -123,11 +125,14 @@ namespace ORACLE
                     SlowType(purposeResponses[index]);
 
                     // Follow-up with consistent details about topics covered
-                    SlowType("I cover:");
-                    SlowType("##>>  Phishing emails");
-                    SlowType("##>> Password security");
-                    SlowType("##>>  Safe browsing techniques");
-                    SlowType("##>>  Suspicious links\n");
+                    SlowType("\n╔═════════════════════════════════");
+                    SlowType("║          WHAT I COVER!         ║");
+                    SlowType("╚════════════════════════════════╝\n");
+                    SlowType("✅ Password security");
+                    SlowType("✅ Phishing scams");
+                    SlowType("✅ Safe browsing techniques");
+                    SlowType("✅ Recognizing suspicious links");
+                    SlowType("✅ General cybersecurity awareness\n");
 
                     SlowType("Anything specific you'd like help with?");
 
@@ -140,6 +145,24 @@ namespace ORACLE
                 {
                     currentTopic = "password";
                     Console.ForegroundColor = ConsoleColor.Cyan;
+
+                    // Detect sentiment and provide an uplifting message if needed
+                    if (userInput.Contains("worried") || userInput.Contains("frustrated") || userInput.Contains("confused") ||
+                        userInput.Contains("stressed") || userInput.Contains("overwhelmed") || userInput.Contains("anxious") ||
+                        userInput.Contains("nervous") || userInput.Contains("upset") || userInput.Contains("uncertain") ||
+                        userInput.Contains("lost"))
+                    {
+                        SlowType("ORACLE: I understand that cybersecurity can feel overwhelming, but you're not alone! I’ll guide you through it step by step. You’ve got this! 😊");
+                    }
+
+                    if (userInput.Contains("excited") || userInput.Contains("happy") || userInput.Contains("love") ||
+                       userInput.Contains("awesome") || userInput.Contains("cool") || userInput.Contains("great") ||
+                       userInput.Contains("fantastic") || userInput.Contains("amazing") || userInput.Contains("enthusiastic"))
+                    {
+                        SlowType("ORACLE: I love your enthusiasm! Cybersecurity knowledge is empowering—let’s explore something fun today! 🔥");
+                    }
+
+                    // Randomly select one password response from the list
                     List<string> passwordResponses = new List<string>
                     {
                     $"ORACLE: I'm so excited to teach you about passwords, {userName}!",
@@ -148,38 +171,39 @@ namespace ORACLE
                     $"ORACLE: Protecting your information starts with a strong password. Let’s go over the basics!"
                     };
 
+
                     Random rand = new Random();
                     int index = rand.Next(passwordResponses.Count);
                     SlowType(passwordResponses[index]);
 
 
-                    SlowType("The importance of a password is to protect your personal information in the digital world.");
-                    SlowType($"You need a strong password, {userName}, because it helps protect you from dangerous characters trying to exploit your information—like scammers and hackers.\n");
+                    SlowType("\n🔐 The importance of a password is to protect your personal information in the digital world.");
+                    SlowType($"You need a strong password, {userName}, because it helps protect you from scammers and hackers.\n");
 
-                    SlowType("\n=====================================");
-                    SlowType("       HOW TO PROTECT YOURSELF     ");
-                    SlowType("=====================================\n");
+                    SlowType("╔═════════════════════════════════");
+                    SlowType("║  PASSWORD SECURITY ESSENTIALS  ║");
+                    SlowType("╚════════════════════════════════╝");
 
                     // List of possible tips for password security
                     List<string> passwordTips = new List<string>
                     {
-                     "✅ Make your password **at least 12-16 characters long** for stronger security.",
-                     "✅ Use a **passphrase** instead of a random password (e.g., 'BlueSky$RunsFast!').",
-                     "✅ Include a mix of **uppercase & lowercase letters, numbers, and special characters**.",
-                     "✅ **Never reuse** passwords across different accounts.",
-                     "✅ Consider using a **password manager** to securely store your passwords.",
-                     "✅ Enable **multi-factor authentication (MFA)** for extra security.",
-                     "✅ Beware of **password-sharing scams**—never share your credentials!"
+                     "🔑 Make your password at least 12-16 characters long for stronger security.",
+                     "🔑 Use a passphrase instead of a random password (e.g., 'ChickenOvaB33f!').",
+                     "🔑 Include a mix of uppercase & lowercase letters, numbers, and special characters.",
+                     "🔑 Never reuse passwords across different accounts.",
+                     "🔑 Consider using a password manager** to securely store your passwords.",
+                     "🔑 Enable multi-factor authentication (MFA) for extra security.",
+                     "🔑 Beware of password-sharing scams, never share your credentials!"
                     };
 
                     List<string> selectedTips = passwordTips.OrderBy(x => rand.Next()).Take(3).ToList();
-                    foreach (var tip in passwordTips)
+                    foreach (var tip in selectedTips)
                     {
                         SlowType(tip);
                     }
 
-                    SlowType($"\nExample password: '1Luv{userName}!###'\n");
-                    SlowType("Anything else?");
+                    SlowType($"\nExample: '1Luv{userName}!###'\n");
+                    SlowType("Is there anything else you'd like to explore? 😊");
 
                     Console.ResetColor(); // Reset text color to default
                 }         
@@ -189,6 +213,15 @@ namespace ORACLE
                 {
                     currentTopic = "phishing";
                     Console.ForegroundColor = ConsoleColor.Cyan;
+
+                    if (userInput.Contains("worried") || userInput.Contains("frustrated") || userInput.Contains("confused") ||
+                        userInput.Contains("stressed") || userInput.Contains("overwhelmed") || userInput.Contains("anxious") ||
+                        userInput.Contains("nervous") || userInput.Contains("upset") || userInput.Contains("uncertain") ||
+                        userInput.Contains("lost"))
+                    {
+                        SlowType("ORACLE: Phishing scams can be stressful, but don’t worry! I’ll guide you through it so you can stay safe and secure. You’ve got this! 🛡️");
+                    }
+
                     List<string> phishingResponses = new List<string>
                     {
                      $"ORACLE: I can't stand phishing scams, {userName}! They're like digital pickpockets, sneaking into your inbox.",
@@ -196,24 +229,25 @@ namespace ORACLE
                      $"ORACLE: Scammers are sneaky, {userName}! They create fake emails and links to trick people into handing over their personal details.",
                      $"ORACLE: Online fraud is a serious threat, {userName}. Let's go over how to spot and avoid phishing scams!"
                     };
+
                     Random rand = new Random();
                     int index = rand.Next(phishingResponses.Count);
                     SlowType(phishingResponses[index]);
 
-                    SlowType($"Scammers impersonate trusted organizations, hoping you'll fall for their schemes.");
+                    SlowType("\n🔎 Scammers impersonate trusted organizations, hoping you'll fall for their tricks.");
                     SlowType($"But don’t worry, {userName}, I’ll help you spot the red flags so they don’t get you!\n");
 
-                    SlowType("\n=====================================");
-                    SlowType("      SPOTTING A PHISHING SCAM     ");
-                    SlowType("=====================================\n");
+                    SlowType("╔══════════════════════════════════╗");
+                    SlowType("║    SPOTTING A PHISHING SCAM 🚨  ║");
+                    SlowType("╚══════════════════════════════════╝\n");
 
                     List<string> phishingRedFlags = new List<string>
                     {
-                     $"🔍 Emails starting with \"Dear Customer\" instead of \"Dear {userName}\"",
-                      "📎 Unknown attachments you weren’t expecting",
-                      "❌ Misspelled domain names that look similar to real ones",
+                     $"⚠️ Emails starting with \"Dear Customer\" instead of \"Dear {userName}\"",
+                      "⚠️ Unknown attachments you weren’t expecting",
+                      "⚠️ Misspelled domain names that look similar to real ones",
                       "⚠️ Urgent language like \"Claim your prize immediately!\", \"If you don’t update your account, it will be deleted\"",
-                      "🔗 Links that look trustworthy but redirect to fraudulent sites"
+                      "⚠️ Links that look trustworthy but redirect to fraudulent sites"
                     };
 
                     List<string> selectedRedFlags = phishingRedFlags.OrderBy(x => rand.Next()).Take(3).ToList();
@@ -222,20 +256,22 @@ namespace ORACLE
                         SlowType(redFlag);
                     }
 
-                    SlowType($"\nI want you to stay safe from phishing scams, {userName}, and this is how:");
+                    SlowType("\n╔═══════════════════════════════");
+                    SlowType("║    HOW TO STAY PROTECTED🕵️     ║ ");
+                    SlowType("╚════════════════════════════════╝");
                     List<string> phishingPreventionTips = new List<string>
                      {
-                     "🔒 Add an extra layer of security like **Two-Factor Authentication (2FA)**",
-                     "🚫 **Never open strange attachments or links from unknown senders**",
-                     "🔎 **Double-check email sender addresses**—scammers use subtle variations",
-                     "🔗 **Hover over links before clicking** to verify their real destination",
-                     "❌ **Never share your password**, no matter who asks for it",
-                     "🛡️ **Use a password manager** to prevent phishing attempts",
-                     "🕵️ **Be wary of QR codes**—fraudsters embed malicious links inside them"
+                     "🔒 Add an extra layer of security like Two-Factor Authentication (2FA)",
+                     "🚫 Never open strange attachments or links from unknown senders",
+                     "🔎 Double-check email sender addresses**—scammers use subtle variations",
+                     "🔗 Hover over links before clicking** to verify their real destination",
+                     "❌ Never share your password**, no matter who asks for it",
+                     "🛡️ Use a password manager** to prevent phishing attempts",
+                     "🕵️ Be wary of QR codes**—fraudsters embed malicious links inside them"
                     };
 
                     List<string> selectedPreventionTips = phishingPreventionTips.OrderBy(x => rand.Next()).Take(3).ToList();
-                    foreach (var tip in phishingPreventionTips)
+                    foreach (var tip in selectedPreventionTips)
                     {
                         SlowType(tip);
                     }
@@ -505,15 +541,16 @@ namespace ORACLE
         public static void RetroStartUp()
         {
             Console.ForegroundColor = ConsoleColor.Cyan; //setting colour
-            for (int i = 0; i < 5; i++) //loops 5 times to look like a loading effect and play dots one by one
+            Console.Write("[LOADING]\n");
+            for (int i = 0; i < 15; i++) //loops 10 times to look like a loading effect and play dots one by one
             {
-                Console.Write(".");
+                Console.Write("█");
                 System.Threading.Thread.Sleep(500); //give the retro delayed effect
             }
             Console.ResetColor();
         }
 
-        static void SlowType(string message, int speed = 100) //type writer like effect , message is the string to be typed out, speed is the speed the effect has
+        static void SlowType(string message, int speed = 20) //type writer like effect , message is the string to be typed out, speed is the speed the effect has
         {
             if (message.StartsWith("ORACLE:")) //if message starts with ORACLE this method is to prevent it from printing twice and so its printed separately
             {
