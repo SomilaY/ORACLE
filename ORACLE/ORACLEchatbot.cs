@@ -283,43 +283,50 @@ namespace ORACLE
                 {
                     currentTopic = "safe browising";
                     Console.ForegroundColor = ConsoleColor.Cyan;
+
+                    if (userInput.Contains("worried") || userInput.Contains("frustrated") || userInput.Contains("confused") ||
+                        userInput.Contains("stressed") || userInput.Contains("overwhelmed") || userInput.Contains("anxious") ||
+                        userInput.Contains("nervous") || userInput.Contains("upset") || userInput.Contains("uncertain") ||
+                        userInput.Contains("lost"))
+                    {
+                        SlowType("ORACLE: I totally understand how scary this all can be but dont worry I'm here!😊");
+                    }
+
                     List<string> safeBrowsingResponses = new List<string>
                     {
-                    $"ORACLE: Safe browsing is all about protecting yourself while exploring the vast web, {userName}!",
-                    $"ORACLE: Navigating the internet safely is key, {userName}! Let’s make sure you stay secure online.",
-                    $"ORACLE: Scammers and hackers are lurking everywhere, {userName}! Let me show you how to browse safely.",
-                    $"ORACLE: Cyber threats are out there, {userName}, but don’t worry—I’ve got your back!",
-                    $"ORACLE: The internet is a great place, {userName}, but it can also be risky. Here’s how to stay safe!"
+                    $"ORACLE: Safe browsing is all about protecting yourself while exploring the vast web, {userName}!🌐",
+                    $"ORACLE: Navigating the internet safely is key, {userName}! Let’s make sure you stay secure online.🛡️",
+                    $"ORACLE: Scammers and hackers are lurking everywhere, {userName}! Let me show you how to browse safely.🌐",
+                    $"ORACLE: Cyber threats are out there, {userName}, but don’t worry—I’ve got your back!🛡️",
+                    $"ORACLE: The internet is a great place, {userName}, but it can also be risky. Here’s how to stay safe!🌐"
                     };
 
-                   
+
                     Random rand = new Random();
                     int index = rand.Next(safeBrowsingResponses.Count);
-
-                    
                     SlowType(safeBrowsingResponses[index]);
 
-                    SlowType("\n=====================================");
-                    SlowType("       HOW TO BROWSE SAFELY        ");
-                    SlowType("=====================================\n");
+                    SlowType("\n╔═════════════════════════════════");
+                    SlowType("║     HOW TO BROWSE SAFELY🔑     ║");
+                    SlowType("╚════════════════════════════════╝");
 
-                   
+
                     List<string> safeBrowsingTips = new List<string>
                      {
-                    "░ **Always check for HTTPS or the lock icon** in the address bar—this means the site is secure.",
-                    "░ **Double-check URLs** before entering personal info—scammers create fake sites that look identical to real ones.",
-                    "░ **Avoid public Wi-Fi for sensitive tasks**—hackers can get your data on unsecured networks.",
-                    "░ **Never download files from unknown sources**—they could contain viruses or malware.",
-                    "░ **Keep your browser updated regularly**—updates address security vulnerabilities.",
-                    "░ **Don’t click on suspicious pop-ups or ads**—these often lead to scams or malicious sites.",
-                    "░ **Use a secure search engine** that prioritizes privacy.",
-                    "░ **Enable safe browsing settings** in your browser for added protection.",
-                    "░ **Always verify the legitimacy of links** before clicking—hover over them to check the true destination."
+                     "\n🔒 Always check for HTTPS or the lock icon** in the address bar—this means the site is secure.",
+                     "🔎 Double-check URLs before entering personal info—scammers create fake sites that look identical to real ones.",
+                     "📶 Avoid public Wi-Fi for sensitive tasks—hackers can get your data on unsecured networks.",
+                     "⚠️ Never download files from unknown sources—they could contain viruses or malware.",
+                     "🛠️ Keep your browser updated regularly—updates address security vulnerabilities.",
+                     "🚫 Don’t click on suspicious pop-ups or ads—these often lead to scams or malicious sites.",
+                     "🔍 Use a secure search engine that prioritizes privacy.",
+                     "🛡️ Enable safe browsing settings** in your browser for added protection.",
+                     "🔗 Always verify the legitimacy of links before clicking—hover over them to check the true destination."
                      };
 
 
                     List<string> selectedTips = safeBrowsingTips.OrderBy(x => rand.Next()).Take(3).ToList();
-                    foreach (var tip in safeBrowsingTips)
+                    foreach (var tip in selectedTips)
                     {
                         SlowType(tip);
                     }
@@ -328,45 +335,52 @@ namespace ORACLE
                     Console.ResetColor();
                 }
                 else if (userInput.Contains("suspicious links") ||
-                         userInput.Contains("unsafe links") ||
+                         userInput.Contains("unsafe links") || userInput.Contains("links") ||
                          userInput.Contains("weird links"))
                 {
                     currentTopic = "suspicious links";
                     Console.ForegroundColor = ConsoleColor.Cyan;
+
+                    if (userInput.Contains("worried") || userInput.Contains("frustrated") || userInput.Contains("confused") || //sentiment response
+                        userInput.Contains("stressed") || userInput.Contains("overwhelmed") || userInput.Contains("anxious") ||
+                        userInput.Contains("nervous") || userInput.Contains("upset") || userInput.Contains("uncertain") ||
+                        userInput.Contains("lost"))
+                    {
+                        SlowType($"ORACLE: Criminals are a scary threat on the internet but don't worry {userName}, I've got you💪");
+                    }
+
                     List<string> suspiciousLinkResponses = new List<string>
                      {
-                     $"ORACLE: GREAT! I love this topic, {userName}. Recognizing shady links is key to avoiding scams online!",
-                     $"ORACLE: Hackers love using fake links, {userName}. Let’s break down how to identify them.",
-                     $"ORACLE: Scammers are always finding new ways to disguise dangerous links, {userName}. Here's how to stay safe!",
-                     $"ORACLE: Suspicious links can lead to phishing attacks, {userName}. Let’s go over how to recognize them!"
+                     $"ORACLE: GREAT! I love this topic, {userName}. Recognizing shady links is key to avoiding scams online!🔗",
+                     $"ORACLE: Hackers love using fake links, {userName}. Let’s break down how to identify them.🔗",
+                     $"ORACLE: Scammers are always finding new ways to disguise dangerous links, {userName}. Here's how to stay safe!🔗",
+                     $"ORACLE: Suspicious links can lead to phishing attacks, {userName}. Let’s go over how to recognize them!🔗"
                      };
 
-                  
+
                     Random rand = new Random();
                     int index = rand.Next(suspiciousLinkResponses.Count);
-
-                   
                     SlowType(suspiciousLinkResponses[index]);
 
-                    SlowType("\n=====================================");
-                    SlowType("  HOW TO RECOGNIZE SUSPICIOUS LINKS  ");
-                    SlowType("=====================================\n");
+                    SlowType("\n╔════════════════════════════════════");
+                    SlowType("║    HOW TO SPOT SUSPICIOUS LINKS 🕵️  ║ ");
+                    SlowType("╚═════════════════════════════════════╝");
 
-                    
-                    List<string> suspiciousLinkRedFlags = new List<string>
+
+                    List<string> suspiciousLinkRedFlags = new List<string> //list of red flags that get randomly shown to user so its different everytime
                     {
-                    "--->  **Check for misspellings** – Scammers use fake domains like \"Go0gle.com\" instead of \"Google.com\".",
-                    "--->  **Watch out for shortened URLs** – Hackers hide dangerous links behind URL shorteners like bit.ly or tinyurl.",
-                    "--->  **Look for HTTPS encryption** – A secure website starts with \"https://\"—avoid sites that only have \"http://\".",
-                    "--->  **Hover over links before clicking** – On computers, hovering over a link shows the real destination.",
-                    "--->  **Be cautious with unexpected emails or messages** – If someone sends you a link out of nowhere, think twice before clicking.",
-                    "--->  **Always check the sender's email** – Scammers use fake sender addresses that appear legitimate.",
-                    "--->  **Avoid clicking on links in urgent messages** – If an email says \"Your account will be deactivated unless you click here!\", it’s likely a scam."
+                     "🔎 Check for misspellings – Scammers use fake domains like \"Go0gle.com\" instead of \"Google.com\".",
+                     "⚠️ Watch out for shortened URLs – Hackers hide dangerous links behind URL shorteners like bit.ly or tinyurl.",
+                     "🔒 Look for HTTPS encryption – A secure website starts with \"https://\"—avoid sites that only have \"http://\".",
+                     "👀 Hover over links before clicking – On computers, hovering over a link shows the real destination.",
+                     "📩 Be cautious with unexpected emails or messages** – If someone sends you a link out of nowhere, think twice before clicking.",
+                     "📧 Always check the sender's email – Scammers use fake sender addresses that appear legitimate.",
+                     "🚫 Avoid clicking on links in urgent messages** – If an email says \"Your account will be deactivated unless you click here!\", it’s likely a scam."
                     };
 
                     // Shuffle and display randomized suspicious link red flags
                     List<string> selectedRedFlags = suspiciousLinkRedFlags.OrderBy(x => rand.Next()).Take(3).ToList();
-                    foreach (var redFlag in suspiciousLinkRedFlags)
+                    foreach (var redFlag in selectedRedFlags)
                     {
                         SlowType(redFlag);
                     }
@@ -376,17 +390,17 @@ namespace ORACLE
                     // List of possible suspicious link prevention tips
                     List<string> suspiciousLinkPreventionTips = new List<string>
                     {
-                    "--->  **Enable Two-Factor Authentication (2FA)** for extra protection.",
-                    "--->  **Never open links from unknown sources**—especially in unsolicited messages.",
-                    "--->  **Use a link checker tool** to verify URLs before clicking.",
-                    "--->  **If in doubt, go directly to the official website** instead of clicking an email link.",
-                    "--->  **Enable safe browsing settings** in your browser to detect malicious sites.",
-                    "--->  **Be cautious with QR codes**—scammers embed phishing links inside them."
-                     };
+                     "🔒 Enable Two-Factor Authentication (2FA) for extra protection.",
+                     "🚫 Never open links from unknown sources—especially in unsolicited messages.",
+                     "🛠️ Use a link checker tool to verify URLs before clicking.",
+                     "🔗 If in doubt, go directly to the official website instead of clicking an email link.",
+                     "⚠️ Enable safe browsing settings in your browser to detect malicious sites.",
+                     "📷 Be cautious with QR codes—scammers embed phishing links inside them."
+                    };
 
                     // Shuffle and display randomized prevention tips
                     List<string> selectedPreventionTips = suspiciousLinkPreventionTips.OrderBy(x => rand.Next()).Take(3).ToList();
-                    foreach (var tip in suspiciousLinkPreventionTips)
+                    foreach (var tip in selectedPreventionTips)
                     {
                         SlowType(tip);
                     }
@@ -394,10 +408,10 @@ namespace ORACLE
                     SlowType($"\nAnything else you need help with, {userName}?");
                     Console.ResetColor();
                 }
+                //follow up responses for all the topics
                 else if (userInput.Contains("password"))
                 {
                     currentTopic = "password";
-                    // Initial password explanation
                     SlowType("ORACLE: Strong passwords are essential, but there's more to it! Do you want to learn about password managers?");
                 }
 
@@ -425,7 +439,7 @@ namespace ORACLE
                     }
                 }
 
-                // Example-based follow-up
+                // Example-based follow-up responses
                 else if (userInput.Contains("example") || userInput.Contains("show me"))
                 {
                     if (currentTopic == "phishing")
@@ -473,14 +487,15 @@ namespace ORACLE
                     SlowType("ORACLE: Cybercriminals often use urgent language like 'your account will be locked!' or fake rewards to get clicks. Want to see common phrases they use?");
                 }
 
+                //when the user asks for a tip for different topics
                 else if (userInput.Contains("password tip"))
                 {
                     List<string> passwordTips = new List<string>
-        {
-            "✅ Use a **passphrase** instead of a short password—it's easier to remember and harder to crack.",
-            "✅ **Never reuse passwords** across different accounts.",
-            "✅ **Enable multi-factor authentication (MFA)** whenever possible."
-        };
+                    {
+                    "✅ Use a **passphrase** instead of a short password—it's easier to remember and harder to crack.",
+                    "✅ **Never reuse passwords** across different accounts.",
+                    "✅ **Enable multi-factor authentication (MFA)** whenever possible."
+                    };
                     Random rand = new Random();
                     int index = rand.Next(passwordTips.Count);
                     SlowType(passwordTips[index]);
@@ -490,11 +505,12 @@ namespace ORACLE
                 else if (userInput.Contains("phishing tip"))
                 {
                     List<string> phishingTips = new List<string>
-        {
-            "🔎 **Always verify sender email addresses**—scammers often use subtle misspellings.",
-            "🚫 **Never click links in unsolicited emails**—instead, go directly to the official website.",
-            "⚠️ **Beware of urgent messages**—scammers create fake emergencies to trick you into reacting."
-        };
+                    {
+                     "🔎 Always verify sender email addresses—scammers often use subtle misspellings.",
+                     "🚫 Never click links in unsolicited emails—instead, go directly to the official website.",
+                     "⚠️ Beware of urgent messages**—scammers create fake emergencies to trick you into reacting."
+                    };
+
                     Random rand = new Random();
                     int index = rand.Next(phishingTips.Count);
                     SlowType(phishingTips[index]);
@@ -504,17 +520,18 @@ namespace ORACLE
                 else if (userInput.Contains("safe browsing tip"))
                 {
                     List<string> safeBrowsingTips = new List<string>
-        {
-            "🔒 **Always check for HTTPS and the lock icon** before entering sensitive data.",
-            "🚫 **Never enter credentials on sites from unknown emails**—they could be phishing scams.",
-            "👀 **Hover over links before clicking** to ensure they lead to legitimate destinations."
-        };
+                    {
+                    "🔒 Always check for HTTPS and the lock icon before entering sensitive data.",
+                    "🚫 Never enter credentials on sites from unknown emails—they could be phishing scams.",
+                    "👀Hover over links before clicking to ensure they lead to legitimate destinations."
+                    };
+
                     Random rand = new Random();
                     int index = rand.Next(safeBrowsingTips.Count);
                     SlowType(safeBrowsingTips[index]);
 
                 }
-                else
+                else //randomly selects a different response when the user puts something the chatbot doesn't understand
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     List<string> unknownResponses = new List<string>
